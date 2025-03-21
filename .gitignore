@@ -1,0 +1,14 @@
+# Ignore .env file
+.env
+
+# Ignore the upload folder
+upload/
+
+# Ignore the data folder
+data/
+
+# Ignore all __pycache__ folders
+__pycache__/
+
+# Optionally ignore compiled files (like .pyc files)
+*.pyc

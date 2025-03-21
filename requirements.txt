@@ -28,3 +28,4 @@ whisper
 langchain-huggingface>=0.0.6
 aiofiles
 python-multipart
+gunicorn==20.1.0

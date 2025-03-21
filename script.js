@@ -225,7 +225,7 @@ function addUserMessage(message) {
     const messageElement = document.createElement('div');
     messageElement.className = 'message user-message';
     messageElement.innerHTML = `
-        <div class="avatar user-avatar">U</div>
+        <div class="avatar user-avatar">You</div>
         <div class="message-content">
             <div class="message-text">${escapeHtml(message)}</div>
         </div>
@@ -245,7 +245,7 @@ function addBotMessage(message) {
     const formattedMessage = formatMessage(message);
     
     messageElement.innerHTML = `
-        <div class="avatar bot-avatar">B</div>
+        <div class="avatar bot-avatar">AI</div>
         <div class="message-content">
             <div class="message-text">${formattedMessage}</div>
         </div>
@@ -485,8 +485,16 @@ window.addEventListener('load', () => {
 // Add clear chat functionality
 const clearChatButton = document.getElementById('clear-chat');
 clearChatButton.addEventListener('click', () => {
-    chatMessages.innerHTML = '';
-    localStorage.removeItem('chatHistory');
+    const confirmClear = confirm('Are you sure you want to clear the chat history?');
+    if (confirmClear) {
+        while (chatMessages.firstChild) {
+            chatMessages.removeChild(chatMessages.firstChild);
+        }
+        localStorage.removeItem('chatHistory');
+        
+        // Add welcome message after clearing
+        addBotMessage('Chat cleared. How can I help you today?');
+    }
 });
 
 // Enable/disable send button based on input

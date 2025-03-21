@@ -25,28 +25,33 @@ body {
 }
 
 .sidebar {
-    width: 280px;
+    width: 260px; /* Increased from 240px */
     background: var(--primary-light);
     padding: 20px;
     display: flex;
     flex-direction: column;
     box-shadow: 1px 0 10px var(--shadow);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: var(--accent);
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Reduced from 40px */
     text-align: center;
 }
 
 .upload-section {
     background: white;
-    padding: 20px;
+    padding: 15px; /* Reduced from 20px */
     border-radius: 12px;
     box-shadow: 0 4px 12px var(--shadow);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .upload-title {
@@ -120,15 +125,15 @@ body {
 
 .document-list {
     background: white;
-    padding: 20px;
+    padding: 15px; /* Slightly reduced padding */
     border-radius: 12px;
     flex-grow: 1;
     overflow-y: auto;
     box-shadow: 0 4px 12px var(--shadow);
-    padding: 20px;
     border-top: 1px solid #e0e0e0;
-    max-height: 300px;
-    overflow-y: auto;
+    margin-top: 0; /* Remove negative margin */
+    max-height: 250px; /* Increased height by adjusting calculation from 220px to 180px */
+    margin-bottom: 40px; /* Space for footer */
 }
 
 .document-list-title {
@@ -138,8 +143,8 @@ body {
 }
 
 .document-item {
-    padding: 12px;
-    margin-bottom: 8px;
+    /* padding: 10px; Slightly reduced padding */
+    margin-bottom: 6px; /* Slightly reduced margin */
     background: var(--primary-light);
     border-radius: 8px;
     transition: all 0.2s ease;
@@ -165,6 +170,8 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    margin-left: 260px; /* Match sidebar width */
+    height: 100vh;
 }
 
 .chat-container {
@@ -206,6 +213,7 @@ body {
     padding: 20px;
     overflow-y: auto;
     scroll-behavior: smooth;
+    height: calc(100vh - 140px);
 }
 
 .message {
@@ -271,6 +279,9 @@ body {
 .bot-avatar {
     background: var(--accent);
     color: white;
+    font-size: 14px; /* Smaller font size for avatar text */
+    width: 36px;   /* Slightly smaller avatar */
+    height: 36px;
 }
 
 .message-content {
@@ -511,8 +522,32 @@ body {
 }
 
 .clear-chat:hover {
-    background: var(--primary);
+    background: var(--accent);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 260px; /* Match sidebar width */
+    padding: 15px;
+    background: var(--primary-light);
+    text-align: center;
+    font-size: 12px;
+    color: var(--accent);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+.footer span {
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
 @media (max-width: 768px) {
